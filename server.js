@@ -8,6 +8,7 @@ const port = 3000;
 app.use("/", express.static("public"));
 
 const budgetData = JSON.parse(fs.readFileSync("budget-data.json", "utf8"));
+const newBudgetData = JSON.parse(fs.readFileSync("new-budget.json", "utf8"));
 
 app.get("/hello", (req, res) => {
   res.send("Hello World!");
@@ -26,6 +27,21 @@ app.get("/budget", (req, res) => {
   }
 
   res.json(budgetData);
+});
+
+app.get("/newbudget", (req, res) => {
+  if (!newBudgetData) {
+    try {
+      const data = fs.readFileSync("new-budget.json", "utf8");
+      newBudgetData = JSON.parse(data);
+    } catch (err) {
+      console.error("Error reading JSON file:", err);
+      res.status(500).json({ error: "Internal Server Error" });
+      return;
+    }
+  }
+
+  res.json(newBudgetData);
 });
 
 app.listen(port, () => {
