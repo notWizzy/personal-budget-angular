@@ -1,0 +1,10 @@
+[
+  { "label": "Eat out", "value": 25 },
+  { "label": "Rent", "value": 375 },
+  { "label": "Grocery", "value": 110 },
+  { "label": "Entertainment", "value": 231 },
+  { "label": "School", "value": 878 },
+  { "label": "Utilities", "value": 150 },
+  { "label": "Insurance", "value": 100 },
+  { "label": "Loan", "value": 300 }
+]
