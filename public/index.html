@@ -234,7 +234,7 @@
         ]);
 
       // Load data from new-budget.json
-      d3.json("/newbudget", function (error, data) {
+      d3.json("http://localhost:3000/newbudget", function (error, data) {
         if (error) {
           throw error;
         }
