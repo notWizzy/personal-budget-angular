@@ -6,15 +6,10 @@ const fs = require("fs");
 const app = express();
 const port = 3000;
 
-// app.use("/", express.static("public"));
 app.use(cors());
 
 const budgetData = JSON.parse(fs.readFileSync("budget-data.json", "utf8"));
 const newBudgetData = JSON.parse(fs.readFileSync("new-budget.json", "utf8"));
-
-// app.get("/hello", (req, res) => {
-//   res.send("Hello World!");
-// });
 
 app.get("/budget", (req, res) => {
   if (!budgetData) {
